@@ -1,0 +1,16 @@
+{% autoescape %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        {% for entry in news %}
+            <article_id>{{ entry.id }}</article_id>
+            <article_name>{{ entry.newsTitle }}</article_name>
+            <description>{{ entry.newDescription }}</description>
+            <article_createdby>{{ entry.user.firstName }}</article_createdby>
+            <article_createdat>{{ entry.createdAt|date("d-m-Y H:i:s") }}</article_createdat>
+             <article_image><img src="{{ asset(entry.WebPath) }}" width="50" height="50"/></article_image>
+
+        {% endfor %}
+    </url>
+</urlset>
+{% endautoescape %}

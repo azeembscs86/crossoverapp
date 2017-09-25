@@ -1,0 +1,77 @@
+{% extends 'CrossOverAppUserBundle::base_news_reg.html.twig' %}
+{% block body %}
+    <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>News Article  <small> Detail</small></h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>{{news.newsTitle}}</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a href="{{ path('news_site_index')}}" class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <div id="mainb" style="height:350px;">
+                          <img src="{{ asset(news.WebPath) }}"/>
+                      </div>
+
+                    </div>
+
+                    <!-- start project-detail sidebar -->
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+                      <section class="panel">
+
+                        <div class="x_title">
+                          <h2>New Article Description</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                          <h4 class="green"><i class="fa fa-paint-brush"></i> {{news.newsTitle}}</h4>
+
+                          <p>{{news.newDescription}}</p>
+                          <br />
+
+                          <div class="project_detail">
+
+                            <p class="title">Created By</p>
+                            <p>{{ app.user.firstName }} {{ app.user.lastName }}</p>
+                            <p class="title">Created Date</p>
+                            <p>{{ news.createdAt|date("d-m-Y H:i:s") }}</p>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+            </div>
+          </div>
+ 
+    <style>
+        .news-textarea
+        {
+          margin: 0px;
+          width: 494px;
+          height: 218px;
+        }
+        
+    </style>
+    
+
+{% endblock %}
+
+
+

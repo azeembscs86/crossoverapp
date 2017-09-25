@@ -1,0 +1,28 @@
+{% extends 'CrossOverAppUserBundle::base_reg.html.twig' %}
+
+{% block action_block_content %}
+    <section class="reg_blk">
+        <div class="action_cnt">
+            <div class="steps step_1">  
+                <div id="container_demo" >
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <p>Thanks for Register at our Web Portal,An activation email has been sent to your registered email {{email}} kindly check you email to activate your account.</p>
+                        </div>	
+                        <p class="change_link">  
+                                    Already a member ?
+                                    <a href="{{path('login')}}" class="to_register"> Go and log in </a>
+                                </p>
+                    </div>
+                </div>  
+
+                <!--/.sttp_1--></div>
+            <!--/.action_cnt--></div>
+        <!--/.action_blk--></section>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,117 @@
+{% extends 'CrossOverAppUserBundle::base_reg.html.twig' %}
+
+{% block action_block_content %}
+    <section class="reg_blk">
+        <div class="action_cnt">
+            <div class="steps step_1">  
+                <div id="container_demo" >
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="{{ path('login_check') }}" method="post" class="form" autocomplete="on"> 
+                                <h1>Log in</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" >Enter Your email </label>
+                                    <input id="email" name="_username" value="{{ last_username }}" required="required" type="text" placeholder="Enter Your Email"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p">Enter Your password </label>
+                                    <input id="password" name="_password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                </p>
+                                <p class="keeplogin"> 
+                            {% if error %}
+        <div class="login_error" >        
+        <div id="error_content">{{ error.message  | replace({
+        "Bad credentials": "Invalid Log-in credentials"
+            })}}</div>
+        
+        </div>
+        {% endif %}
+                <input type="hidden" name="_target_path" value="/news/index" />
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+								</p>
+                                <p class="change_link">
+				Not a member yet ?
+                                <a href="{{path('registration')}}" class="to_register">Join us</a>
+			        </p>
+                            </form>
+                        
+                        </div>	
+                    </div>
+                </div>  
+
+                <!--/.sttp_1--></div>
+            <!--/.action_cnt--></div>
+        <!--/.action_blk--></section>
+                
+                
+                
+                <script>
+            
+         $(document).ready(function(){
+         $('#email').attr("value","email");
+         $('#password').attr("value","password");
+         
+         $('.form').find('input:password').each(function() {
+   $("<input type='text' id='text'/>").attr({ name: this.name, value: this.value }).insertBefore(this);
+}).remove();  
+     
+     $('#email').focusin(function(){
+         var tt = $(this).val();
+         if(tt=='email'){
+         $(this).val('');
+         }
+     });
+         
+    $('#email').focusout(function(){   
+         var ttt = $(this).val();
+          if(ttt==''){ 
+          $(this).val('email');
+          }            
+    });    
+    
+    
+    $('#text').live('focusin', function() {
+         
+         var ee = $(this).val();
+         if(ee=='password'){
+         $(this).val('');
+         }
+         
+         
+         $('.form').find('input[id="text"]').each(function() {             
+   $("<input type='password' id='password2' >").attr({ name: this.name, value: this.value }).insertBefore(this);
+}).remove();      
+ $('#password2').focus(); 
+         });
+         
+         
+    $('#password2').live('focusout', function() {
+   
+     if($(this).val().length===0){    
+        
+       
+     $('.form').find('input[id="password2"]').each(function() {             
+   $("<input type='text' id='text' >").attr({ name: this.name, value: this.value }).insertBefore(this);
+}).remove();
+    
+      }
+      $('#text').attr("value","password");
+      
+      
+      
+    });   
+  
+   
+         });        
+          
+            
+         </script>  
+
+{% endblock %}
+
+
+

@@ -1,0 +1,8 @@
+image_category:
+
+  news:
+    original:
+      prefix: 
+      dir:  'uploads/crossover/news'
+
+   

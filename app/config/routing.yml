@@ -1,0 +1,11 @@
+cross_over_app_user:
+    resource: "@CrossOverAppUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+_welcome:
+    pattern:  /
+    defaults: { _controller: LoveThatFitUserBundle:Registration:registration}
+    
+app:
+    pattern:  /
+    defaults: { _controller: CrossOverAppUserBundle:Registration:registration}

@@ -1,0 +1,32 @@
+{% block gender_widget %}
+    {% spaceless %}
+        {% if expanded %}
+            
+            {% for child in form %}
+
+                <div class="radio_ele">
+                    {{form_widget(child) }}
+                        {{form_label(child) }}
+                    
+                    </div>
+            {% endfor %}
+            
+        {% else %}
+            {{  block('choice_widget') }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+
+{# ----------------------------------------------------------- #}
+
+{% block field_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+         <div class="error_list">
+            {% for error in errors %}
+               {{ error.messageTemplate|trans(error.messageParameters, 'validators') }}
+            {% endfor %}
+       </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock field_errors %}

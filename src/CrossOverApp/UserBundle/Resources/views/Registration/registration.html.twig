@@ -1,0 +1,67 @@
+{% extends 'CrossOverAppUserBundle::base_reg.html.twig' %}
+
+{% form_theme form 'CrossOverAppUserBundle:FormTheme:fields.html.twig' %}
+
+{% block action_block_content %}
+    <section class="reg_blk">
+        <div class="action_cnt">
+            <div class="steps step_1">  
+                <div id="container_demo" >
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="{{ path('registration_user_create')}}" method="post" {{ form_enctype(form) }} autocomplete="on"> 
+                            {{ form_errors(form, { 'attr': {'class': 'error_cls'} }) }}
+                                 <h1> Sign up </h1> 
+                                
+                                 <p> 
+                           <label for="usernamesignup" class="uname" data-icon="u">First Name</label>
+                       {{ form_widget(form.first_name, { 'attr': {'placeholder': 'First name'} }) }}
+                       {{ form_errors(form.first_name) }}
+                                </p>
+                         <p> 
+                           <label for="usernamesignup" class="uname" data-icon="u">Last Name</label>
+                       {{ form_widget(form.last_name, { 'attr': {'placeholder': 'Last name'} }) }}
+                       {{ form_errors(form.last_name) }}
+                                </p>        
+                                 <p> 
+                           <label for="usernamesignup" class="uname" data-icon="u">Email Address</label>
+                       {{ form_widget(form.email, { 'attr': {'placeholder': 'Email'} }) }}
+                       {{ form_errors(form.email) }}
+                                </p>
+                       
+                          <p> 
+                              <label for="passwordsignup" class="youpasswd" data-icon="p">Enter Your password </label>
+                                    {{ form_widget(form.password.password, { 'attr': {'placeholder': 'Password'} }) }}
+                           </p>
+                          <p> 
+                              <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                                     {{ form_widget(form.password.confirm, { 'attr': {'placeholder': 'Confirm Password'} }) }}   
+                        {{ form_errors(form.password.password) }}
+                        
+                                </p>
+                                <p> 
+                                    {{ form_errors(form.password.confirm) }}
+                                </p>
+                                {{ form_rest(form) }}
+                                <p class="signin button"> 
+                                    <input type="submit" value="Sign up"/> 
+                                </p>
+                                <p class="change_link">  
+                                    Already a member ?
+                                    <a href="{{path('login')}}" class="to_register"> Go and log in </a>
+                                </p>
+                            </form>
+                        </div>	
+                    </div>
+                </div>  
+
+                <!--/.sttp_1--></div>
+            <!--/.action_cnt--></div>
+        <!--/.action_blk--></section>
+
+{% endblock %}
+
+
+

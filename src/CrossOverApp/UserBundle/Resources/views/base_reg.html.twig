@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Cross Over Assisment Login and Registration </title>
+        <link href="{{ asset('bundles/CrossOverApp/css/demo.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/CrossOverApp/css/style3.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/CrossOverApp/css/animate-custom.css') }}" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+        
+    </head>
+
+    <body class="full_site home">
+        <div class="full_wrapper">
+            <div class="holder">    
+                <section class="site_container">
+                     <div class="left_column">
+                    
+                    {% block action_block_content %}
+                    {% endblock %}
+                <!--/.left_menu--></div>
+                        
+            
+
+                    <!--/.site_container--></section>
+               
+                <!--/.holder--></div>
+            <footer class="footer">
+                
+                <div class="bottom_line"></div>
+                
+                    <!--/.footer--></footer>
+                <!--/.full_wrapper--></div>
+            {% block bottom_random_content %}
+            {% endblock %} 
+        </body>
+    </html>

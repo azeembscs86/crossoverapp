@@ -1,0 +1,72 @@
+{% extends 'CrossOverAppUserBundle::base_news_reg.html.twig' %}
+{% block breadcrumb %}
+       <li class="active">News</li>
+{% endblock %}
+{% block body %}
+<div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>News <small>Articles Listing</small></h3>
+              </div>
+                
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>News Articles</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                <div class="btn_wrapper">   
+                    <a style="float: left;" href="{{ path('news_article_generate_pdf') }}" class="btn btn-info btn-sm">Generate PDF</a>
+                     <a style="float: right;" href="{{ path('cross_over_news_new') }}" class="btn btn-info btn-sm">Add New</a>
+                </div>
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%">#</th>
+                          <th style="width: 20%">News Title</th>
+                          <th>News Image</th>
+                          <th>CreatedAt</th>
+                          <th style="width: 20%">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for n in news %}
+                        <tr>
+                          <td>#</td>
+                          <td>
+                            <a>{{n.newsTitle}}</a>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li>
+                                  <img src="{{ asset(n.WebPath) }}" width="50" height="50"/>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <button type="button" class="btn btn-success btn-xs">{{ n.createdAt|date("d-m-Y H:i:s") }}</button>
+                          </td>
+                          <td>
+                            <a href="{{ path('news_site_show', {'id': n.Id}) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="{{ path('news_article_delete', {'id': n.Id}) }}" onclick="return confirm('are u sure?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+{% endblock %}

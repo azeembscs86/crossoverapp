@@ -1,0 +1,56 @@
+security:
+    encoders:
+      Symfony\Component\Security\Core\User\User:
+           algorithm:   sha1
+           iterations: 1
+           encode_as_base64: false
+      
+      CrossOverApp\UserBundle\Entity\User:
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false
+            
+      
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                login_path:  /login
+                check_path:  /login_check
+                username_parameter: _username
+                password_parameter: _password
+                
+            logout:
+               path:   /logout
+               target: /login
+            #http_basic:
+                #realm: "Secured Demo Area"
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /email/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
+        - { path: /register/user/create, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
+        - { path: /register/, roles: ROLE_USER }        
+        - { path: /register, roles: IS_AUTHENTICATED_ANONYMOUSLY }        
+        
+        
+
+    providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db]
+        in_memory:
+            memory:
+                
+        user_db:                      
+            entity: { class: CrossOverApp\UserBundle\Entity\User, property: email }
+            
+            
+
+    #encoders:
+        #
+        #Symfony\Component\Security\Core\User\User: plaintext
+        
+        

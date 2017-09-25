@@ -1,0 +1,9 @@
+services:
+#    cross_over_app_user.example:
+#        class: CrossOverApp\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+     mail_helper:
+        class:     CrossOverApp\UserBundle\MailHelper
+        arguments: ['@mailer','@templating']
